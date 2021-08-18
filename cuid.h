@@ -21,16 +21,16 @@
 ** An optional pure API is provided if you define the macro CUID_PURE.
 **
 ** This implementation provides ample configuration points, most of it can be
-** customized to ensure integration with current existing id schemes or other
+** customised to ensure integration with current existing id schemes or other
 ** cuid implementations.
 **
 ** The default implementation uses BSD functions. These include
-** - `arc4random` as the 32bit number generator (can be overriden by the
+** - `arc4random` as the 32bit number generator (can be overridden by the
 **      macro `MWC_SYSTEM_RAND32` to be any other function.
-** - `getpid` and `gethostname` for the fingerprint (can be overriden by
+** - `getpid` and `gethostname` for the fingerprint (can be overridden by
 **      declaring a custom fingerprint generator function in the macro
 **      CUID_GET_FINGERPRINT)
-** - `time` for the timestamp (can be overriden by setting a timestamp
+** - `time` for the timestamp (can be overridden by setting a timestamp
 **      function in the macro CUID_GET_TIMESTAMP)
 **
 ** If the pure API is used then many other points of the generation can be
@@ -56,11 +56,11 @@ extern "C" {
 ** - The timestamp function defined by `CUID_GET_TIMESTAMP`.
 ** - The random function defined by `MWC_SYSTEM_RAND32`.
 **
-** It is recomended that the pure interface provided below is used instead,
+** It is recommended that the pure interface provided below is used instead,
 ** however, for effortless and quick generation of cuid's this function does
 ** its job.
 **
-** It recieves the char array where the generated cuid will be placed at.
+** It receives the char array where the generated cuid will be placed at.
 ** The resulting cuid is '\0' terminated and a length of 23 chars + '\0'.
 **
 ** This function returns the length of the final cuid string written to the
@@ -71,7 +71,7 @@ size_t cuid(char result[static CUID_SIZE]);
 
 /*
 ** Provide your timestamp function and define it as CUID_GET_TIMESTAMP.
-** This function should recieve no arguments and return 
+** This function should receive no arguments and return
 ** a `unsigned long` number.
 **
 ** The default is `time()` from the <time.h> C standard lib.
